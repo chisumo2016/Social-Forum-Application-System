@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/discuss', function () {
+    return view('discuss');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -29,3 +33,7 @@ Route::get('/{provider}/redirect',[
     'uses' => 'SocialsController@auth_callback',
     'as'   => 'social.callback'
 ]);
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('channels', 'ChannelsController');
+});

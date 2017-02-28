@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Channel extends Model
 {
     //Mass Assigment
-    protected  $fillable = ['title'];
+     protected  $fillable = ['title'];
 
     //Relationship
 
