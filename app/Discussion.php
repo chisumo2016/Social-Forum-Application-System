@@ -8,7 +8,7 @@ class Discussion extends Model
 {
     //Mass Assigment
 
-    protected  $fillable = ['title', 'content', 'user_id', 'channel_id'];
+    protected  $fillable = ['title', 'content', 'user_id', 'channel_id', 'slug'];
 
     //Relationship
     public function channel()

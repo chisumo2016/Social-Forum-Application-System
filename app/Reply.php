@@ -8,7 +8,7 @@ class Reply extends Model
 {
     //Mass Assigment
 
-    protected $fillable =['content', 'user_id', 'discussion_id'];
+    protected $fillable =  ['content', 'user_id', 'discussion_id'];
 
     //Relationship
 
