@@ -24,3 +24,8 @@ Route::get('{provider}/auth',[
     'as'   => 'social.auth'
 
 ]);
+
+Route::get('/{provider}/redirect',[
+    'uses' => 'SocialsController@auth_callback',
+    'as'   => 'social.callback'
+]);
