@@ -49,7 +49,13 @@
 
         <div class="panel-footer">
             <p>
-                Like
+                @if($r->is_liked_by_auth_user())
+                    <a href="" class="btn btn-danger">Unlike</a>
+
+               @else
+                    <a href="/" class="btn btn-success">Like</a>
+
+                @endif
             </p>
         </div>
     @endforeach
