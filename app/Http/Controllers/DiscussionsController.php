@@ -39,7 +39,7 @@ class DiscussionsController extends Controller
 
         ]);
 
-        Session()->flash('success', 'Discussion succesfully created.');
+        session()->flash('success', 'Discussion succesfully created.');
 
 
         return redirect()->route('discussion', ['slug' => $discussion->slug]);
@@ -88,7 +88,7 @@ class DiscussionsController extends Controller
 
        Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
 
-        Session()->flash('success', 'Replied to Discussion');
+        session()->flash('success', 'Replied to Discussion');
         return redirect()->back();
     }
 

@@ -14,7 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <!-- Scripts -->
     <script>
@@ -110,6 +110,19 @@
                           <li class="list-group-item">
                               <a href="/forum" style="text-decoration: none">Home</a>
                           </li>
+                          <li class="list-group-item">
+                              <a href="/forum?filter=me" style="text-decoration: none">My Discussions</a>
+                          </li>
+
+                          <li class="list-group-item">
+                              <a href="/forum?filter=solved" style="text-decoration: none">Answered Discussions</a>
+
+                          </li>
+
+                          <li class="list-group-item">
+                              <a href="/forum?filter=unsolved" style="text-decoration: none">Unaswered Discussions</a>
+
+                          </li>
                       </ul>
                   </div>
               </div>
@@ -137,13 +150,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
     <script>
         @if(Session::has('success'))
-          toastr.success(' {{ Session::get('success') }}')
+          toastr.success("{{ Session::get('success') }}");
         @endif
     </script>
+
 </body>
 </html>

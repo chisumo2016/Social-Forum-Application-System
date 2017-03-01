@@ -9,10 +9,10 @@
 
               {{--<span class="btn btn pull-right btn-success btn-xs">CLOSE</span>--}}
               @if($d->hasBestAnswer())
-                  <span class="btn btn pull-right btn-success btn-xs">close</span>
+                  <span class="btn btn pull-right btn-success btn-xs">closed</span>
 
               @else
-                  <span class="btn btn pull-right btn-danger btn-xs">open</span>
+                  <span class="btn btn pull-right btn-danger btn-xs">opened</span>
                @endif
               <a href="{{ route('discussion', ['slug' =>$d->slug]) }}" class="btn btn-default btn-xs pull-right">View</a>
           </div>
