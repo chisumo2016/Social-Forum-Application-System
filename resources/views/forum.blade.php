@@ -20,9 +20,10 @@
       </div>
 
        <div class="panel-footer">
-           <p>
+           <span>
                {{ $d->replies->count() }} Replies
-           </p>
+           </span>
+           <a href="{{ route('channel', ['slug' => $d->channel->slug]) }}" class="pull-right btn btn-success btn-xs">{{ $d->channel->title }}</a>
        </div>
 
     @endforeach
