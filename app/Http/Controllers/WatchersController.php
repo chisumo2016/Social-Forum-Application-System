@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Watcher;
+
 use Auth;
 
-use Illuminate\Http\Request;
+
 use Session;
+use Illuminate\Http\Request;
+use App\Watcher;
+
 class WatchersController extends Controller
 {
     //
@@ -18,7 +21,7 @@ class WatchersController extends Controller
             'user_id'       => Auth::id()
         ]);
 
-        Session:flash('success', 'You are watching this discussion');
+       // Session:flash('success', 'You are watching this discussion');
 
 
         return redirect()->back();

@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Discussion;
+
 use Auth;
 
+
 use Session;
+
+
+use App\User;
 use App\Reply;
+use App\Discussion;
 use Illuminate\Http\Request;
 
 class DiscussionsController extends Controller
@@ -57,11 +62,22 @@ class DiscussionsController extends Controller
     {
         $d = Discussion::find($id);
 
+
+
         $reply = Reply::create([
             'user_id'        => Auth::id(),
             'discussion_id'  => $id,
             'content'      =>request()->reply
         ]);
+        
+        //Detecting watcher
+        $watchers = array();
+        foreach ($d->watchers as $watcher):
+            array_push($watchers, User::find($watcher->user_id)); // Push user object
+        endforeach;
+
+        dd($watchers);
+
 
         Session::flash('success', 'Replied to Discussion');
         return redirect()->back();
