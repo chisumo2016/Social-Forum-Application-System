@@ -35,7 +35,7 @@ class WatchersController extends Controller
         $watcher->delete();
 
 
-        Session::flash('success', 'You are no watching this discussion');
+        Session()->flash('success', 'You are no watching this discussion');
 
 
         return redirect()->back();

@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Auth;
-
-
 use Session;
-
-
 use App\User;
 use App\Reply;
 use Notification;
@@ -43,7 +39,7 @@ class DiscussionsController extends Controller
 
         ]);
 
-        Session::flash('success', 'Discussion succesfully created.');
+        Session()->flash('success', 'Discussion succesfully created.');
 
 
         return redirect()->route('discussion', ['slug' => $discussion->slug]);
@@ -92,7 +88,9 @@ class DiscussionsController extends Controller
 
        Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
 
-        Session::flash('success', 'Replied to Discussion');
+        Session()->flash('success', 'Replied to Discussion');
         return redirect()->back();
     }
+
+
 }

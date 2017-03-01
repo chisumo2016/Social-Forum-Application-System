@@ -36,7 +36,7 @@ class Discussion extends Model
        $id = Auth::id();
        $watcher_ids = array();
 
-       //Get all the user who are waching to this array watcher
+       //Get all the user who are watching to this array watcher
 
         foreach ($this->watchers as $w):
 
@@ -55,4 +55,20 @@ class Discussion extends Model
         }
 
     }
+
+    public function hasBestAnswer()
+    {
+        $result = false;
+        foreach ($this->replies as $reply)
+        {
+            if($reply->best_answe)
+            {
+              $result = true;
+              break;
+            }
+        }
+        return $result;
+    }
+
+
 }
