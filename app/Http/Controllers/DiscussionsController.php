@@ -11,6 +11,7 @@ use Session;
 
 use App\User;
 use App\Reply;
+use Notification;
 use App\Discussion;
 use Illuminate\Http\Request;
 
@@ -69,15 +70,16 @@ class DiscussionsController extends Controller
             'discussion_id'  => $id,
             'content'      =>request()->reply
         ]);
-        
+
         //Detecting watcher
         $watchers = array();
         foreach ($d->watchers as $watcher):
             array_push($watchers, User::find($watcher->user_id)); // Push user object
         endforeach;
 
-        dd($watchers);
+        //Send a Notification     dd($watchers);
 
+       Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
 
         Session::flash('success', 'Replied to Discussion');
         return redirect()->back();
