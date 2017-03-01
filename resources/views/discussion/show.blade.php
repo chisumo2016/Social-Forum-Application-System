@@ -50,10 +50,10 @@
         <div class="panel-footer">
             <p>
                 @if($r->is_liked_by_auth_user())
-                    <a href="" class="btn btn-danger">Unlike</a>
+                    <a href="{{ route('reply.unlike', ['id' => $r->id]) }}" class="btn btn-danger">Unlike</a>
 
                @else
-                    <a href="/" class="btn btn-success">Like</a>
+                    <a href="{{ route('reply.like', ['id' => $r->id]) }}" class="btn btn-success btn-xs">Like</a>
 
                 @endif
             </p>
