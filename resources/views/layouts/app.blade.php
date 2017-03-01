@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -78,6 +81,20 @@
             </div>
         </nav>
 
+
+            @if($errors->count() > 0 )
+
+              <ul class="list-group-item">
+                  @foreach($errors->all() as $error)
+                    <li class="list-group-item text-danger">
+                        {{ $error }}
+                    </li>
+                  @endforeach
+              </ul>
+            <br> <br>
+            @endif
+
+
       <div class="container">
 
           <div class="col-md-4">
@@ -118,5 +135,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+    <script>
+        @if(Session::has('success'))
+          toastr.success(' {{ Session::get('success') }}')
+        @endif
+    </script>
 </body>
 </html>

@@ -58,12 +58,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('channels', 'ChannelsController');
 
     Route::get('discussion/create/new', [
-        'uses' => 'DiscussionsController@create',
-        'as' => 'discussions.create'
+        'uses' =>  'DiscussionsController@create',
+        'as'    => 'discussions.create'
     ]);
     Route::post('discussions/store', [
         'uses' => 'DiscussionsController@store',
-        'as' => 'discussions.store'
+        'as'   => 'discussions.store'
     ]);
 
 
@@ -91,4 +91,11 @@ Route::group(['middleware' => 'auth'], function(){
         'uses'  => 'WatchersController@unwatch',
         'as'     => 'discussion.unwatch'
     ]);
+
+
+    Route::get('/discussion/best/reply/{id}', [
+        'uses' => 'RepliesController@best_answer',
+        'as' => 'discussion.best.answer'
+    ]);
+
 });
