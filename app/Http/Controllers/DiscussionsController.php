@@ -28,7 +28,7 @@ class DiscussionsController extends Controller
             'title'      => 'required'
         ]);
 
-        $discussion = Discussion::create([
+        $discussions = Discussion::create([
             'title'      => $r->title,
             'content'    => $r->content,
             'channel_id' => $r->channel_id,
@@ -40,7 +40,7 @@ class DiscussionsController extends Controller
         Session::flash('success', 'Discussion successfully created');
 
 
-        return redirect()->route('discussion', ['slug' => $discussion->slug]);
+        return redirect()->route('discussions', ['slug' => $discussions->slug]);
     }
 
 
