@@ -9,7 +9,7 @@
         <div class="panel-body">
             <form action="{{ route('discussions.store') }}" method="post">
                 {{ csrf_field() }}
-i
+
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" name="title"  value="{{ old('title') }}" class="form-control">
