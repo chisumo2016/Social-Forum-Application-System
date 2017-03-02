@@ -36,7 +36,8 @@
             </h4>
             <hr>
             <p class="text-center">
-                {{ $d->content }}
+                {!!  Markdown::convertToHtml($d->content) !!}
+                {{--{{ $d->content }}--}}
             </p>
 
             <hr>
