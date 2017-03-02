@@ -52,7 +52,9 @@
                         </div>
 
                         <div class="panel-body">
-                            {{ $best_answer->content }}
+
+                            {!! Markdown::convertToHtmll($best_answer->content) !!}
+                            {{--{{ $best_answer->content }}--}}
                         </div>
                     </div>
                 </div>
@@ -89,7 +91,9 @@
 
             <div class="panel-body">
                 <p class="text-center">
-                    {{ $r->content }}
+
+                    {!! Markdown::convertToHtml($r->content ) !!}
+                    {{--{{ $r->content }}--}}
                 </p>
             </div>
             <div class="panel-footer">
