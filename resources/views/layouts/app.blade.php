@@ -107,6 +107,7 @@
 
                   <div class="panel-body">
                       <ul class="list-group">
+
                           <li class="list-group-item">
                               <a href="/forum" style="text-decoration: none">Home</a>
                           </li>
@@ -125,10 +126,29 @@
                           </li>
                       </ul>
                   </div>
+
+
+                      @if(Auth::check())
+                       {{--Only Displayed if your autheticated user--}}
+                          @if(Auth::user()->admin)
+                              <div class="panel-body">
+                                  <ul class="list-group">
+                                      <li class="list-group-item">
+                                          <a href="/channels" style="text-decoration: none">All Channels</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          @endif
+                      @endif
+
               </div>
 
 
               <div class="panel panel-default">
+
+                  <div class="panel-heading">
+                      Channels
+                  </div>
 
                   <div class="panel-body">
                       <ul class="list-group">
